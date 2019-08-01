@@ -19,6 +19,20 @@ class Article
     private $user;
 
     /**
+     * Set users
+     *
+     * @param \AppBundle\Entity\User $user
+     *
+     * @return Article
+     */
+    public function setUser(\AppBundle\Entity\User $user)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")
