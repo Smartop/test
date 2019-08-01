@@ -48,6 +48,7 @@ class ArticleController extends Controller
                 $this->getParameter('upload_dir'),$fileName
             );
             $article->setImage($fileName);
+            $article->setCreatedAt(new \DateTime('now'));
             $em = $this->getDoctrine()->getManager();
             $em->persist($article);
             $em->flush();

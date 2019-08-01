@@ -19,7 +19,9 @@ class ArticleType extends AbstractType
             ->add('content')
             ->add('category')
             ->add('createdAt')
-            ->add('image', FileType::class, ['label' => 'select image']);
+            ->add('image',
+                FileType::class,
+                ['label' => 'select image', 'data_class' => null, 'required' => false]);
     }
 
     /**
