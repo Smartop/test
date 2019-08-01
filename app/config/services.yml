@@ -17,6 +17,13 @@ services:
         bind:
             $uploadDir: '%upload_dir%'
 
+    my.listener:
+        class: AppBundle\EventListener\ArticleChanges
+        tags:
+#            - { name: doctrine.event_listener, event: postUpdate, method: postUpdate }
+            - { name: doctrine.event_listener, event: preUpdate, method: preUpdate }
+            - { name: monolog.logger, channel: article}
+
     # makes classes in src/AppBundle available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
     AppBundle\:

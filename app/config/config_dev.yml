@@ -12,7 +12,13 @@ web_profiler:
     intercept_redirects: false
 
 monolog:
+    channels: ['article']
     handlers:
+        article:
+            type: stream
+            path: '%kernel.logs_dir%/article.log'
+            level: error
+            channels: [article]
         main:
             type: stream
             path: '%kernel.logs_dir%/%kernel.environment%.log'
