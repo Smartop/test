@@ -24,14 +24,6 @@ class ArticleChanges
     public function preUpdate(PreUpdateEventArgs $args)
     {
         $entity = $args->getObject();
-//        $entity = $args->getEntity();
-        /*if ($entity instanceof Article) {
-            foreach ($this->fields as $field) {
-                if ($args->getOldValue() != $args->getNewValue()) {
-                    $this->logger->error('TEST  ' . $args->getOldValue($field));
-                }
-            }
-        }*/
         if ($args->hasChangedField('title') && $args->hasChangedField('content')) {
             $this->logger->alert('Old title value - ' . $args->getOldValue('title'));
             $this->logger->alert('Old content value - ' . $args->getOldValue('content'));
